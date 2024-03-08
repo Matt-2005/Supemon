@@ -15,10 +15,6 @@ int main()
     initSupemon(&supemon2, "Supasaur", 1, 9, 1, 1, 3, 2, 2, "Pound", "Foliage");
     initSupemon(&supemon3, "Supirtle", 1, 11, 1, 2, 2, 1, 2, "Pound", "Shell");
 
-    displaySupemon(&supemon1);
-    displaySupemon(&supemon2);
-    displaySupemon(&supemon3);
-
     initPlayer(&player, &supemon1, &supemon2, &supemon3);
     return 0;
 }
