@@ -46,10 +46,6 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
     }
     // printf("How many Supemons coins do you have?\n");
     // scanf("%d", &player->supcoins);
-    printf("+------------------------------+\n");
-    printf("|Where do you want to go?      |\n|     1 - Into the Wild        |\n|     2 - To the shop          |\n|     3 - In the Supemon Center|\n|     4 - Leave the Game       |\n");
-    printf("+------------------------------+\n");
-    printf("1, 2, 3 or 4 ? : ");
-    scanf("%d", &player->location);
+
 }
 
