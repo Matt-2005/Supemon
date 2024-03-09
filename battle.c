@@ -8,8 +8,8 @@
 
 void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3) {
     srand(time(NULL));
-    int randomNumber = 3;
-    int playerTurn = 1;
+    int randomNumber = rand() % 3;
+    int playerTurn = 2;
     if (playerTurn == 1)
     {
         playerTurn = 2;
@@ -29,6 +29,18 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
             printf("\n");
             printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
             printf("--------------------------------\n");
+            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+            printf("\n");
+            printf("+----------------------------+\n");
+            printf("%s (%s)\n", supemon1->name, player->name);
+            printf("--------------------------------\n");
+            printf("HP: %d/%d     Lvl: %d\n", supemon1->hp,supemon1->max_hp, supemon1->level);
+            printf("Atk: %d     Def: %d\n", supemon1->attack, supemon1->defense);
+            printf("Acc: %d     Eva: %d\n", supemon1->accuracy, supemon1->evasion);
+            printf("--------------------------------\n");
+
 
             printf("+----------------------------+\n");
             printf("|What will you do?           |\n|     1 - Move               |\n|     2 - Change Supemon     |\n|     3 - Use item           |\n|     4 - Capture            |\n|     5 - Run away           |\n");
@@ -63,7 +75,12 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
 
                 case 2:
                     printf("+--------------------------------+\n");
-                    printf("|which pokemon will you take?    |\n|     1 - %s              |\n|     2 - %s                       |\n|     3 - %s                       |\n", player->supemonList[0], player->supemonList[1], player->supemonList[2]);
+                    printf("|which pokemon will you take?    |\n");
+                    for (int i = 0; i < 3; i++)
+                    {
+                        
+                    }
+                    
                     printf("+--------------------------------+\n");
                     printf("1, 2 or 3 ? : ");
                     scanf("%d", &battle->SupemonChoise);
@@ -146,7 +163,7 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
 
         }
     }
-    else if (player->selectedSupemon == 2 && playerTurn == 1)
+    else if (player->selectedSupemon == 2)
     {
         int continuer = 1;
         while (continuer)
@@ -267,7 +284,7 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
 
         }
     }
-    else if (player->selectedSupemon == 3 && playerTurn == 1)
+    else if (player->selectedSupemon == 3)
     {
         int continuer = 1;
         while (continuer)

@@ -3,6 +3,7 @@
         "string.h": "c",
         "player.h": "c",
         "stdio.h": "c",
-        "supemon.h": "c"
+        "supemon.h": "c",
+        "stdlib.h": "c"
     }
 }

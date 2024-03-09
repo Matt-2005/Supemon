@@ -9,8 +9,10 @@ typedef struct {
     int attack;
     int defense;
     int evasion;
+    int accuracy;
+    int speed;
 } Move ;
 
-void initMove(Move *move, const char *name, int damage, int attack, int defense, int evasion);
+void initMove(Move *move, const char *name, int damage, int attack, int defense, int evasion, int accuracy, int speed);
 
 #endif

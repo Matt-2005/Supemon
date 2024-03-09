@@ -71,7 +71,8 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
     scanf("%d",&player->location);
     if (player->location == 1)
     {
-        void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3);
+        Battle battle;
+        initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
     }
     
 
