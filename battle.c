@@ -1,16 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "supemon.h"
 #include "player.h"
 #include "battle.h"
 
-void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3) {
-    if (player->selectedSupemon == 1)
+void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3) {
+    srand(time(NULL));
+    int randomNumber = 3 + rand() % 6;
+    int playerTurn = 1;
+    if (playerTurn == 1)
+    {
+        playerTurn = 2;
+    } else if (playerTurn == 2)
+    {
+        playerTurn = 1;
+    }
+
+    
+
+    if (player->selectedSupemon == 1 && playerTurn == 1)
     {
         int continuer = 1;
         while (continuer)
         {
+            printf("Yout turn...\n");
+            printf("\n");
+            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+            printf("--------------------------------\n");
+
             printf("+----------------------------+\n");
             printf("|What will you do?           |\n|     1 - Move               |\n|     2 - Change Supemon     |\n|     3 - Use item           |\n|     4 - Capture            |\n|     5 - Run away           |\n");
             printf("+----------------------------+\n");
@@ -127,7 +146,7 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
 
         }
     }
-    else if (player->selectedSupemon == 2)
+    else if (player->selectedSupemon == 2 && playerTurn == 1)
     {
         int continuer = 1;
         while (continuer)
@@ -248,7 +267,7 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
 
         }
     }
-    else if (player->selectedSupemon == 3)
+    else if (player->selectedSupemon == 3 && playerTurn == 1)
     {
         int continuer = 1;
         while (continuer)
