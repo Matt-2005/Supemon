@@ -3,6 +3,7 @@
 #include <string.h>
 #include "supemon.h"
 #include "player.h"
+#include "battle.h"
 
 void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3) {
     printf("What is your name?\n");
@@ -14,6 +15,15 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
     printf("+------------------------------+\n");
     printf("1, 2 or 3 : ");
     scanf("%d", &player->selectedSupemon);
+    for (int i = 0; i < 3; i++)
+    {
+        strcpy(player->supemonList[i], "");
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        strcpy(player->itemsList[i], "");
+    }
+    
     if (player->selectedSupemon == 1)
     {
         printf("\n");
@@ -23,6 +33,7 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
         printf("Atk: %d     Def: %d\n", supemon1->attack, supemon1->defense);
         printf("Acc: %d     Eva: %d\n", supemon1->accuracy, supemon1->evasion);
         printf("\n");
+        strcpy(player->supemonList[0], supemon1->name);
     }  
     else if (player->selectedSupemon == 2)
     {
@@ -33,6 +44,7 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
         printf("Atk: %d     Def: %d\n", supemon2->attack, supemon2->defense);
         printf("Acc: %d     Eva: %d\n", supemon2->accuracy, supemon2->evasion);
         printf("\n");
+        strcpy(player->supemonList[1], supemon2->name);
     }
     else if (player->selectedSupemon == 3)
     {
@@ -43,9 +55,20 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
         printf("Atk: %d     Def: %d\n", supemon3->attack, supemon3->defense);
         printf("Acc: %d     Eva: %d\n", supemon3->accuracy, supemon3->evasion);
         printf("\n");
+        strcpy(player->supemonList[2], supemon3->name);
     }
     // printf("How many Supemons coins do you have?\n");
     // scanf("%d", &player->supcoins);
+    printf("+------------------------------+\n");
+    printf("|Where do you want to go?      |\n|     1 - Into the Wild        |\n|     2 - To the shop          |\n|     3 - In the Supemon Center|\n|     4 - Leave the Game       |\n");
+    printf("+------------------------------+\n");
+    printf("1, 2, 3 or 4 ? : ");
+    scanf("%d",&player->location);
+    if (player->location == 1)
+    {
+        void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3);
+    }
+    
 
 }
 

@@ -1,5 +1,7 @@
 #ifndef BATTLE_H
 #define BATTLE_H
+#include "supemon.h"
+#include "player.h"
 
 typedef struct{
     int userGlobalChoise;
@@ -8,8 +10,8 @@ typedef struct{
     int ItemChoise;
     int captureChoise;
     int runAwayChoise;
-} Battle ;
+} Battle;
 
-void initBattle(Battle *battle, const Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, int userGlobalChoise, int moveChoise, int SupemonChoise, int ItemChoise, int captureChoise, int runAweyChoise);
+void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3);
 
 #endif

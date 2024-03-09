@@ -4,10 +4,10 @@
 
 typedef struct {
     char name[50];
-    char supemonList[3]; 
+    char supemonList[3][50]; 
     int selectedSupemon;
     int supcoins;
-    char items[3][50];
+    char itemsList[3][50];
     int location;
 } Player ;
 

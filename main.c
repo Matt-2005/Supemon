@@ -18,7 +18,7 @@ int main()
     initSupemon(&supemon3, "Supirtle", 1, 11, 1, 2, 2, 1, 2, "Pound", "Shell");
 
     initPlayer(&player, &supemon1, &supemon2, &supemon3);
-    initBattle(&battle, &player, &supemon1, &supemon2, &supemon3, 1, 1, 1, 1, 1, 1);
+    initBattle(&battle, &player, &supemon1, &supemon2, &supemon3);
     return 0;
 }
 
