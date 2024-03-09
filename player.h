@@ -5,7 +5,7 @@
 typedef struct {
     char name[50];
     Supemon supemonList[3];
-    Supemon supemonEnemyList[6]; 
+    Supemon supemonEnemyList[3]; 
     int selectedSupemon;
     int supcoins;
     char itemsList[3][50];

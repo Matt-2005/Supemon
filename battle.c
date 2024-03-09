@@ -8,7 +8,7 @@
 
 void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3) {
     srand(time(NULL));
-    int randomNumber = 3 + rand() % 6;
+    int randomNumber = 3;
     int playerTurn = 1;
     if (playerTurn == 1)
     {
@@ -25,7 +25,7 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
         int continuer = 1;
         while (continuer)
         {
-            printf("Yout turn...\n");
+            printf("Your turn...\n");
             printf("\n");
             printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
             printf("--------------------------------\n");

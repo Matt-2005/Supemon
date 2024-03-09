@@ -33,11 +33,12 @@ int main()
         printf("+------------------------------+\n");
         printf("|Where do you want to go?      |\n|     1 - Into the Wild        |\n|     2 - To the shop          |\n|     3 - In the Supemon Center|\n|     4 - Leave the Game       |\n");
         printf("+------------------------------+\n");
-        printf("1, 2, 3 or 4 ? : ");
-        scanf("%d", player.location);
+        printf("1, 2, 3 or 4 ? : \n");
+        scanf("%d", &player.location);
 
         switch(player.location) {
             case 1:
+                printf("You are now in the wild\n");
                 initBattle(&battle, &player, &supemon1, &supemon2, &supemon3, &supemonEnemy1, &supemonEnemy2, &supemonEnemy3);
                 break;
             case 2:
@@ -47,7 +48,7 @@ int main()
                 // Logique pour le centre Supémon
                 break;
             case 4:
-                printf("Merci d'avoir joue !\n");
+                printf("Merci d'avoir joué !\n");
                 break;
             default:
                 printf("Choix non valide, veuillez réessayer.\n");

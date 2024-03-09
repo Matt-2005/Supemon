@@ -41,9 +41,9 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
         printf("Acc: %d     Eva: %d\n", supemon1->accuracy, supemon1->evasion);
         printf("\n");
         player->supemonList[0] = *supemon1;
-        player->supemonEnemyList[3] = *supemonEnemy1;
-        player->supemonEnemyList[4] = *supemonEnemy2;
-        player->supemonEnemyList[5] = *supemonEnemy3;
+        player->supemonEnemyList[0] = *supemonEnemy1;
+        player->supemonEnemyList[1] = *supemonEnemy2;
+        player->supemonEnemyList[2] = *supemonEnemy3;
         // strcpy(player->supemonList[0], supemon1->name);
         // strcpy(player->supemonEnemyList[3], supemonEnemy1->name);
         // strcpy(player->supemonEnemyList[4], supemonEnemy2->name);
@@ -59,9 +59,9 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
         printf("Acc: %d     Eva: %d\n", supemon2->accuracy, supemon2->evasion);
         printf("\n");
         player->supemonList[0] = *supemon2;
-        player->supemonEnemyList[3] = *supemonEnemy1;
-        player->supemonEnemyList[4] = *supemonEnemy2;
-        player->supemonEnemyList[5] = *supemonEnemy3;
+        player->supemonEnemyList[0] = *supemonEnemy1;
+        player->supemonEnemyList[1] = *supemonEnemy2;
+        player->supemonEnemyList[2] = *supemonEnemy3;
         // strcpy(player->supemonList[1], supemon2->name);
         // strcpy(player->supemonEnemyList[3], supemonEnemy1->name);
         // strcpy(player->supemonEnemyList[4], supemonEnemy2->name);
@@ -77,9 +77,9 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
         printf("Acc: %d     Eva: %d\n", supemon3->accuracy, supemon3->evasion);
         printf("\n");
         player->supemonList[0] = *supemon3;
-        player->supemonEnemyList[3] = *supemonEnemy1;
-        player->supemonEnemyList[4] = *supemonEnemy2;
-        player->supemonEnemyList[5] = *supemonEnemy3;
+        player->supemonEnemyList[0] = *supemonEnemy1;
+        player->supemonEnemyList[1] = *supemonEnemy2;
+        player->supemonEnemyList[2] = *supemonEnemy3;
         // strcpy(player->supemonList[2], supemon3->name);
         // strcpy(player->supemonEnemyList[3], supemonEnemy1->name);
         // strcpy(player->supemonEnemyList[4], supemonEnemy2->name);
