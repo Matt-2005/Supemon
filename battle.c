@@ -84,6 +84,42 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
                         printf("Vous utilisez votre item 3 (a implementer)");
                         continuer = 0;
                     }
+                break;
+
+                case 4:
+                    printf("+------------------------------------------------+\n");
+                    printf("|Are you sure you want to capture the supemon?   |\n|     1 - Yes                                    |\n|     2 - No                                     |\n");
+                    printf("+------------------------------------------------+\n");
+                    printf("1 or 2 ? : ");
+                    scanf("%d", &battle->captureChoise);
+                    if (battle->captureChoise == 1)
+                    {
+                        printf("fonction de capture a implementer");
+                        continuer = 0;
+                    }
+                    else if (battle->captureChoise == 2)
+                    {
+                        printf("You don't want to capture the supemon");
+                    }
+                break;
+
+                case 5:
+                    printf("+----------------------------------+\n");
+                    printf("|Are you sure you want to run away?|\n|     1 - Yes                      |\n|     2 - No                       |\n");
+                    printf("+----------------------------------+\n");
+                    printf("1 or 2 ? : ");
+                    scanf("%d", &battle->runAwayChoise);
+                    if (battle->runAwayChoise == 1)
+                    {
+                        printf("fonction de fuite a implementer\n");
+                        continuer = 0;
+                    }
+                    else if (battle->runAwayChoise == 2)
+                    {
+                        printf("You don't want to run away\n");
+                    }
+                break;    
+
                 default:
                     continuer = 0;
                     break;
