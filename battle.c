@@ -10,7 +10,7 @@
 #include "shop.h"
 #include "supemon_center.h"
 
-void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3, const Items *item1, const Items *item2, const Items *item3) {
+void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3, const Items *item1, const Items *item2, const Items *item3, const Move *move1, const Move *move2, const Move *move3, const Move *move4, const Move *move5, const Move *move6, const Move *move7, const Move *move8, const Move *move9, const Move *move10) {
     srand(time(NULL));
     int randomNumber = rand() % 3;
     int playerTurn = 2;
@@ -51,7 +51,7 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
         switch (battle->userGlobalChoise)
         {
             case 1:
-                printf("1 - %s\n2 - %s\n2 - Cancel\n", player->currentSupemon->move[0].name, player->currentSupemon->move[1].name);
+                printf("1 - %s, %d\n2 - %s, %d\n2 - Cancel\n", player->currentSupemon[0].move[0].name, player->currentSupemon[0].move[0].damage, player->currentSupemon[0].move[1].name, player->currentSupemon[0].move[1].damage);
                 printf("1, 2 or 3 ? :\n");
                 scanf("%d", &battle->moveChoise);
                 if (battle->moveChoise == 1)
@@ -62,6 +62,7 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
                     }
                     else if (player->currentSupemon[0].move[0].attack > 0) {
                         printf("Increase attack by %d.\n", player->currentSupemon[0].move[0].attack);
+                        // player->currentSupemon[0].attack += // 
                     }
                     else if (player->currentSupemon[0].move[0].defense > 0) {
                         printf("Increase defense by %d.\n", player->currentSupemon[0].move[0].defense);
@@ -72,7 +73,7 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
                     else if (player->currentSupemon[0].move[0].accuracy > 0) {
                         printf("Reduces enemy accuracy.\n");
                     } 
-                    else if (player->currentSupemon[0].move[0].speed > 0) {
+                    else if (player->currentSupemon[0].move[0].speed > 0) { 
                         printf("Reduces enemy speed.\n");
                     }
                     continuer = 0;
@@ -202,17 +203,17 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
                         if (player->location == 1)
                         {
                             Battle battle;
-                            initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
+                            initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
                         }
                         else if (player->location == 2)
                         {
                             Shop shop;
-                            initShop(&shop, player, item1, item2, item3, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                            initShop(&shop, player, item1, item2, item3, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
                         }
                         else if (player->location == 3)
                         {
                             Supcenter supcenter;
-                            initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
+                            initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
                         }
                         continuer = 0;
                     }
@@ -253,17 +254,17 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
                             if (player->location == 1)
                             {
                                 Battle battle;
-                                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
+                                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
                             }
                             else if (player->location == 2)
                             {
                                 Shop shop;
-                                initShop(&shop, player, item1, item2, item3, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                                initShop(&shop, player, item1, item2, item3, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
                             }
                             else if (player->location == 3)
                             {
                                 Supcenter supcenter;
-                                initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
+                                initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
                             }
                             continuer = 0;
                         }

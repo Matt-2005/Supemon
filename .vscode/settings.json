@@ -4,6 +4,11 @@
         "player.h": "c",
         "stdio.h": "c",
         "supemon.h": "c",
-        "stdlib.h": "c"
-    }
+        "stdlib.h": "c",
+        "battle.h": "c",
+        "move.h": "c",
+        "shop.h": "c",
+        "items.h": "c",
+        "supemon_center.h": "c"
+    } 
 }

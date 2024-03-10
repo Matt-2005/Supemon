@@ -8,7 +8,7 @@
 #include "items.h"
 #include "supemon_center.h"
 
-void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3, const Items *item1, const Items *item2, const Items *item3) {
+void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3, const Items *item1, const Items *item2, const Items *item3, const Move *move1, const Move *move2, const Move *move3, const Move *move4, const Move *move5, const Move *move6, const Move *move7, const Move *move8, const Move *move9, const Move *move10) {
     int playerTurn = 1;
     printf("What is your name?\n");
     scanf("%s", player->name);
@@ -32,7 +32,7 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
         printf("\n");
 
         player->currentSupemon[0] = *supemon1;
-        player->supemonList[0] = *supemon1;
+        player->supemonList[0] = *supemon1; 
         player->supemonList[1] = *supemon2;
         player->supemonList[2] = *supemon3;
         player->supemonEnemyList[0] = *supemonEnemy1;
@@ -89,18 +89,21 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
     scanf("%d",&player->location);
     if (player->location == 1)
     {
+        printf("%s", player->currentSupemon[0].move[0].name);
         Battle battle;
-        initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
+        initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
+        
+
     }
     else if (player->location == 2)
     {
         Shop shop;
-        initShop(&shop, player, item1, item2, item3, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+        initShop(&shop, player, item1, item2, item3, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
     }
     else if (player->location == 3)
     {
         Supcenter supcenter;
-        initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
+        initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
     }
 
     
