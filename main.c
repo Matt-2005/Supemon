@@ -6,6 +6,7 @@
 #include "battle.h"
 #include "move.h" 
 #include "items.h"
+#include "save.h"
 
 
 int main() 
@@ -60,12 +61,13 @@ int main()
     itemInit(&item2, "Super Potion", 300, 10, 0);
     itemInit(&item3, "Rare candy", 700, 0, 1);
 
+    printf("If you have already saved beforehand, you can load a game otherwise no\n");
     printf("Welcome, would you like to load your previous game?\n");
     printf("1 - Yes\n2 - No\n");
     scanf("%d", &player.loadGame);
     if (player.loadGame == 1)
     {
-        loadGame(&player);
+        loadGame(&player, &supemon1, &supemon2, &supemon3, &supemonEnemy1, &supemonEnemy2, &supemonEnemy3, &item1, &item2, &item3, &move1, &move2, &move3, &move4, &move5, &move6, &move7, &move8, &move9, &move10);
     }
     else if (player.loadGame == 2)
     {

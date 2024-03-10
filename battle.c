@@ -45,7 +45,7 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
         switch (battle->userGlobalChoise)
         {
             case 1:
-                printf("1 - %s, %d\n2 - %s, %d\n2 - Cancel\n", player->currentSupemon[0].move[0].name, player->currentSupemon[0].move[0].damage, player->currentSupemon[0].move[1].name, player->currentSupemon[0].move[1].damage);
+                printf("1 - %s\n2 - %s\n2 - Cancel\n", player->currentSupemon[0].move[0].name, player->currentSupemon[0].move[1].name);
                 printf("1, 2 or 3 ? :\n");
                 scanf("%d", &battle->moveChoise);
                 if (battle->moveChoise == 1)
