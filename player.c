@@ -82,7 +82,7 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
 
 
     printf("+------------------------------+\n");
-    printf("You have %d supcoins\n", player->supcoins);
+    printf("|You have %d supcoins         |\n", player->supcoins);
     printf("|Where do you want to go?      |\n|     1 - Into the Wild        |\n|     2 - To the shop          |\n|     3 - In the Supemon Center|\n|     4 - Leave the Game       |\n");
     printf("+------------------------------+\n");
     printf("1, 2, 3 or 4 ? : ");
@@ -95,12 +95,12 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
     else if (player->location == 2)
     {
         Shop shop;
-        initShop(&shop, player, item1, item2, item3);
+        initShop(&shop, player, item1, item2, item3, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
     }
     else if (player->location == 3)
     {
         Supcenter supcenter;
-        initSupcenter(&supcenter, player, supemon1, supemon2, supemon3);
+        initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
     }
 
     

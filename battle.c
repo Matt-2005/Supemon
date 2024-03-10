@@ -32,9 +32,9 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
         printf("+----------------------------+\n");
         printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
         printf("--------------------------------\n");
-        printf("HP: %d/%d     Lvl: %d\n", supemon1->hp,supemon1->max_hp, supemon1->level);
-        printf("Atk: %d     Def: %d\n", supemon1->attack, supemon1->defense);
-        printf("Acc: %d     Eva: %d\n", supemon1->accuracy, supemon1->evasion);
+        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
         printf("--------------------------------\n");
 
 
@@ -101,18 +101,20 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
                 scanf("%d", &battle->ItemChoise);
                 if (battle->ItemChoise == 1)
                 {
-                    printf("Vous utilisez votre item 1 (a implementer)");
-                    continuer = 0;
+                    printf("You are using %s\n", player->itemsList[0].name);
+                    player->currentSupemon[0].max_hp += player->itemsList[0].hpGain;
+                    player->currentSupemon[0].hp += player->itemsList[0].hpGain;
                 }
                 else if (battle->ItemChoise == 2)
                 {
-                    printf("Vous utilisez votre item 2 (a implementer)");
-                    continuer = 0;
+                    printf("You are using %s\n", player->itemsList[1].name);
+                    player->currentSupemon[0].max_hp += player->itemsList[1].hpGain;
+                    player->currentSupemon[0].hp += player->itemsList[1].hpGain;
                 }
                 else if (battle->ItemChoise == 3)
                 {
-                    printf("Vous utilisez votre item 3 (a implementer)");
-                    continuer = 0;
+                    printf("You are using %s\n", player->itemsList[2].name);
+                    player->currentSupemon[0].level += player->itemsList[2].levelGain;
                 }
             break;
 
