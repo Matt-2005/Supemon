@@ -21,7 +21,7 @@ typedef struct {
     int isPlayerOwned;
 } Supemon;
 
-void initSupemon(Supemon *supemon, const char *name, int level, int hp, int max_hp, int attack, int defense, int evasion, int accuracy, int speed, const Move *move1, const Move *move2);
+void initSupemon(Supemon *supemon, const char *name, int level, int hp, int max_hp, int attack, int defense, int evasion, int accuracy, int speed, Move *move1, Move *move2);
 void displaySupemon(const Supemon *supemon);
 void levelUpSupemon(Supemon *supemon);
 

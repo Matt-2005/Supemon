@@ -13,14 +13,7 @@
 void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3, const Items *item1, const Items *item2, const Items *item3, const Move *move1, const Move *move2, const Move *move3, const Move *move4, const Move *move5, const Move *move6, const Move *move7, const Move *move8, const Move *move9, const Move *move10) {
     srand(time(NULL));
     int randomNumber = rand() % 3;
-    int playerTurn = 2;
-    if (playerTurn == 1)
-    {
-        playerTurn = 2;
-    } else if (playerTurn == 2)
-    {
-        playerTurn = 1;
-    }
+    int randomNumber2 = rand() % 3;
 
     int continuer = 1;
     while (continuer)
@@ -58,54 +51,454 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
                 {
                     if (player->currentSupemon[0].move[0].damage > 0) {
                         printf("Deals %d damage.\n", player->currentSupemon[0].move[0].damage);
-                        player->supemonEnemyList[randomNumber].hp -= player->currentSupemon[0].move[0].damage;
+                        int damageCalculation = player->currentSupemon[0].attack * player->currentSupemon[0].move[0].damage / player->supemonEnemyList[randomNumber].defense;
+                        player->supemonEnemyList[randomNumber].hp -= damageCalculation;
+                        printf("%d\n", damageCalculation);
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].damage > 0)
+                        {
+                            int damageCalculationEnemy = player->supemonEnemyList[randomNumber].attack * player->supemonEnemyList[randomNumber].move[randomNumber2].damage / player->currentSupemon[0].defense;
+                            player->currentSupemon[0].hp -= damageCalculationEnemy;
+                            printf("%d\n", damageCalculation);
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
+                        
+
+                        
                     }
                     else if (player->currentSupemon[0].move[0].attack > 0) {
                         printf("Increase attack by %d.\n", player->currentSupemon[0].move[0].attack);
-                        // player->currentSupemon[0].attack += // 
+                        player->currentSupemon[0].attack += player->currentSupemon[0].move[0].attack;
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].attack > 0)
+                        {
+                            printf("Increase attack by %d.\n", player->currentSupemon[0].move[0].attack);
+                            player->supemonEnemyList[randomNumber].attack += player->supemonEnemyList[randomNumber].move[randomNumber2].attack;
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
                     }
                     else if (player->currentSupemon[0].move[0].defense > 0) {
                         printf("Increase defense by %d.\n", player->currentSupemon[0].move[0].defense);
+                        player->currentSupemon[0].defense += player->currentSupemon[0].move[0].defense;
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].defense > 0)
+                        {
+                            printf("Increase defense by %d.\n", player->currentSupemon[0].move[0].defense);
+                            player->supemonEnemyList[randomNumber].defense += player->supemonEnemyList[randomNumber].move[randomNumber2].defense;
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
+
                     }
                     else if (player->currentSupemon[0].move[0].evasion > 0) {
                         printf("Increase evasion by %d.\n", player->currentSupemon[0].move[0].evasion);
+                        player->currentSupemon[0].evasion += player->currentSupemon[0].move[0].evasion;
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].evasion > 0)
+                        {
+                            printf("Increase evasion by %d.\n", player->currentSupemon[0].move[0].evasion);
+                            player->supemonEnemyList[randomNumber].evasion += player->supemonEnemyList[randomNumber].move[randomNumber2].evasion;
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
                     } 
                     else if (player->currentSupemon[0].move[0].accuracy > 0) {
                         printf("Reduces enemy accuracy.\n");
+                        player->supemonEnemyList[randomNumber].accuracy -= player->currentSupemon[0].move[0].accuracy;
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].accuracy > 0)
+                        {
+                            printf("Reduces enemy accuracy.\n");
+                            player->currentSupemon[0].accuracy -= player->supemonEnemyList[randomNumber].move[randomNumber2].accuracy;
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
                     } 
                     else if (player->currentSupemon[0].move[0].speed > 0) { 
                         printf("Reduces enemy speed.\n");
-                    }
-                    continuer = 0;
+                        player->supemonEnemyList[randomNumber].speed -= player->currentSupemon[0].move[0].speed;
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].speed > 0)
+                        {
+                            printf("Reduces enemy speed.\n");
+                            player->currentSupemon[0].speed -= player->supemonEnemyList[randomNumber].move[randomNumber2].speed;
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
+                    }    
                 }
                 else if (battle->moveChoise == 2)
                 {
                     if (player->currentSupemon[0].move[1].damage > 0) {
                         printf("Deals %d damage.\n", player->currentSupemon[0].move[1].damage);
+                        int damageCalculation = player->currentSupemon[0].attack * player->currentSupemon[0].move[1].damage / player->supemonEnemyList[randomNumber].defense;
+                        player->supemonEnemyList[randomNumber].hp -= damageCalculation;
+                        printf("%d\n", damageCalculation);
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].damage > 0)
+                        {
+                            int damageCalculationEnemy = player->supemonEnemyList[randomNumber].attack * player->supemonEnemyList[randomNumber].move[randomNumber2].damage / player->currentSupemon[0].defense;
+                            player->currentSupemon[0].hp -= damageCalculationEnemy;
+                            printf("%d\n", damageCalculation);
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
                     } 
                     else if (player->currentSupemon[0].move[1].attack > 0) {
                         printf("Increase attack by %d.\n", player->currentSupemon[0].move[1].attack);
+                        player->currentSupemon[0].attack += player->currentSupemon[0].move[1].attack;
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].attack > 0)
+                        {
+                            printf("Increase attack by %d.\n", player->currentSupemon[0].move[1].attack);
+                            player->supemonEnemyList[randomNumber].attack += player->supemonEnemyList[randomNumber].move[randomNumber2].attack;
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
                     }
                     else if (player->currentSupemon[0].move[1].defense > 0) {
                         printf("Increase defense by %d.\n", player->currentSupemon[0].move[1].defense);
+                        player->currentSupemon[0].defense += player->currentSupemon[0].move[1].defense;
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].defense > 0)
+                        {
+                            printf("Increase defense by %d.\n", player->currentSupemon[0].move[1].defense);
+                            player->supemonEnemyList[randomNumber].defense += player->supemonEnemyList[randomNumber].move[randomNumber2].defense;
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
                     }
                     else if (player->currentSupemon[0].move[1].evasion > 0) {
                         printf("Increase evasion by %d.\n", player->currentSupemon[0].move[1].evasion);
+                        player->currentSupemon[0].evasion += player->currentSupemon[0].move[1].evasion;
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].evasion > 0)
+                        {
+                            printf("Increase evasion by %d.\n", player->currentSupemon[0].move[1].evasion);
+                            player->supemonEnemyList[randomNumber].evasion += player->supemonEnemyList[randomNumber].move[randomNumber2].evasion;
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
                     } 
                     else if (player->currentSupemon[0].move[1].accuracy > 0) {
                         printf("Reduces enemy accuracy.\n");
+                        printf("Reduces enemy accuracy.\n");
+                        player->supemonEnemyList[randomNumber].accuracy -= player->currentSupemon[0].move[1].accuracy;
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].accuracy > 0)
+                        {
+                            printf("Reduces enemy accuracy.\n");
+                            player->currentSupemon[0].accuracy -= player->supemonEnemyList[randomNumber].move[randomNumber2].accuracy;
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
                     } 
                     else if (player->currentSupemon[0].move[1].speed > 0) {
                         printf("Reduces enemy speed.\n");
+                        player->supemonEnemyList[randomNumber].speed -= player->currentSupemon[0].move[1].speed;
+                        printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                        printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                        printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                        printf("\n");
+                        printf("+----------------------------+\n");
+                        printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                        printf("--------------------------------\n");
+                        printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                        printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                        printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                        printf("--------------------------------\n");
+                        printf("Enemy's turn...\n");
+                        if (player->supemonEnemyList[randomNumber].move[randomNumber2].speed > 0)
+                        {
+                            printf("Reduces enemy speed.\n");
+                            player->currentSupemon[0].speed -= player->supemonEnemyList[randomNumber].move[randomNumber2].speed;
+                            printf("%s (enemy)\n", player->supemonEnemyList[randomNumber].name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->supemonEnemyList[randomNumber].hp,player->supemonEnemyList[randomNumber].max_hp, player->supemonEnemyList[randomNumber].level);
+                            printf("Atk: %d     Def: %d\n", player->supemonEnemyList[randomNumber].attack, player->supemonEnemyList[randomNumber].defense);
+                            printf("Acc: %d     Eva: %d\n", player->supemonEnemyList[randomNumber].accuracy, player->supemonEnemyList[randomNumber].evasion);
+                            printf("\n");
+                            printf("+----------------------------+\n");
+                            printf("%s (%s)\n", player->currentSupemon[0].name, player->name);
+                            printf("--------------------------------\n");
+                            printf("HP: %d/%d     Lvl: %d\n", player->currentSupemon[0].hp, player->currentSupemon[0].max_hp, player->currentSupemon[0].level);
+                            printf("Atk: %d     Def: %d\n", player->currentSupemon[0].attack, player->currentSupemon[0].defense);
+                            printf("Acc: %d     Eva: %d\n", player->currentSupemon[0].accuracy, player->currentSupemon[0].evasion);
+                            printf("--------------------------------\n");
+                        }
                     }
-                    continuer = 0;
                 }
                 else if (battle->moveChoise == 3)
-                {
-                    
-                }
-                
-        
+                {}
             break;
                 
             case 2:
@@ -187,7 +580,7 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
                 scanf("%d", &battle->captureChoise);
                 if (battle->captureChoise == 1)
                 {
-                    if (chance > 0.5)
+                    if (chance >= 0.5)
                     {
                         printf("You captured %s\n", player->supemonEnemyList[randomNumber].name);
                         player->supemonList[3] = player->supemonEnemyList[randomNumber];
@@ -231,52 +624,50 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
 
             case 5:
                 {
-                    double chance = (player->currentSupemon[0].speed / (double)(player->currentSupemon[0].speed + player->supemonEnemyList[randomNumber].speed));
-                    printf("+------------------------------------------------+\n");
-                    printf("|You have %lf chance to capture the supemon      |\n", chance);
-                    printf("+------------------------------------------------+\n");
-                    printf("+----------------------------------+\n");
-                    printf("|Are you sure you want to run away?|\n|     1 - Yes                      |\n|     2 - No                       |\n");
-                    printf("+----------------------------------+\n");
-                    printf("1 or 2 ? : ");
-                    scanf("%d", &battle->runAwayChoise);
-                    if (battle->runAwayChoise == 1)
+                double chance = (player->currentSupemon[0].speed / (double)(player->currentSupemon[0].speed + player->supemonEnemyList[randomNumber].speed));
+                printf("+------------------------------------------------+\n");
+                printf("|You have %lf chance to capture the supemon      |\n", chance);
+                printf("+------------------------------------------------+\n");
+                printf("+----------------------------------+\n");
+                printf("|Are you sure you want to run away?|\n|     1 - Yes                      |\n|     2 - No                       |\n");
+                printf("+----------------------------------+\n");
+                printf("1 or 2 ? : ");
+                scanf("%d", &battle->runAwayChoise);
+                if (battle->runAwayChoise == 1)
+                {
+                    if (chance >= 0.5)
                     {
-                        if (chance > 0.5)
+                        printf("You ran away\n");
+                        printf("+------------------------------+\n");
+                        printf("|You have %d supcoins         |\n", player->supcoins);
+                        printf("|Where do you want to go?      |\n|     1 - Into the Wild        |\n|     2 - To the shop          |\n|     3 - In the Supemon Center|\n|     4 - Leave the Game       |\n");
+                        printf("+------------------------------+\n");
+                        printf("1, 2, 3 or 4 ? : ");
+                        scanf("%d",&player->location);
+                        if (player->location == 1)
                         {
-                            printf("You ran away\n");
-                            printf("+------------------------------+\n");
-                            printf("|You have %d supcoins         |\n", player->supcoins);
-                            printf("|Where do you want to go?      |\n|     1 - Into the Wild        |\n|     2 - To the shop          |\n|     3 - In the Supemon Center|\n|     4 - Leave the Game       |\n");
-                            printf("+------------------------------+\n");
-                            printf("1, 2, 3 or 4 ? : ");
-                            scanf("%d",&player->location);
-                            if (player->location == 1)
-                            {
-                                Battle battle;
-                                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
-                            }
-                            else if (player->location == 2)
-                            {
-                                Shop shop;
-                                initShop(&shop, player, item1, item2, item3, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
-                            }
-                            else if (player->location == 3)
-                            {
-                                Supcenter supcenter;
-                                initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
-                            }
-                            continuer = 0;
+                            Battle battle;
+                            initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
                         }
-                        else if (chance < 0.5)
+                        else if (player->location == 2)
                         {
-                            printf("You couldn't run away\n");
+                            Shop shop;
+                            initShop(&shop, player, item1, item2, item3, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
                         }
+                        else if (player->location == 3)
+                        {
+                            Supcenter supcenter;
+                            initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
+                        }
+                        continuer = 0;
                     }
-                    else if (battle->runAwayChoise == 2)
+                    else if (chance < 0.5)
                     {
-                        
+                        printf("You couldn't run away\n");
                     }
+                }
+                else if (battle->runAwayChoise == 2)
+                {}
                 }
             break;    
 
@@ -284,6 +675,6 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
                 continuer = 0;
                 break;
         }
-
     }
 }
+            

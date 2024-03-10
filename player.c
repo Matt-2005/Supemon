@@ -7,6 +7,7 @@
 #include "shop.h"
 #include "items.h"
 #include "supemon_center.h"
+#include "save.h"
 
 void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3, const Items *item1, const Items *item2, const Items *item3, const Move *move1, const Move *move2, const Move *move3, const Move *move4, const Move *move5, const Move *move6, const Move *move7, const Move *move8, const Move *move9, const Move *move10) {
     int playerTurn = 1;
@@ -40,7 +41,8 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
         player->supemonEnemyList[2] = *supemonEnemy3;
         player->supcoins = player->level * 500;
 
-    }  
+    } 
+
     else if (player->selectedSupemon == 2)
     {
         printf("\n");
@@ -60,6 +62,7 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
         player->supcoins = player->level * 500;
 
     }
+
     else if (player->selectedSupemon == 3)
     {
         printf("\n");
@@ -83,33 +86,43 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
 
     printf("+------------------------------+\n");
     printf("|You have %d supcoins         |\n", player->supcoins);
-    printf("|Where do you want to go?      |\n|     1 - Into the Wild        |\n|     2 - To the shop          |\n|     3 - In the Supemon Center|\n|     4 - Leave the Game       |\n");
+    printf("|Where do you want to go?      |\n|     1 - Into the Wild        |\n|     2 - To the shop          |\n|     3 - In the Supemon Center|\n|     4 - Leave the Game + Save|\n");
     printf("+------------------------------+\n");
     printf("1, 2, 3 or 4 ? : ");
     scanf("%d",&player->location);
+
     if (player->location == 1)
     {
-        printf("%s", player->currentSupemon[0].move[0].name);
         Battle battle;
         initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
-        
-
     }
+
     else if (player->location == 2)
     {
         Shop shop;
         initShop(&shop, player, item1, item2, item3, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
     }
-    else if (player->location == 3)
+
+    else if (player->location == 3) 
     {
         Supcenter supcenter;
         initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
     }
-
     
-    
-    
+    else if (player->location == 4)
+    {
+        printf("+-----------------------------------+\n| Save your progression ?           |\n|      1 - Yes                      |\n|      2 - No                       |\n+-----------------------------------+\n");
+        printf("1 or 2: ");
+        scanf("%d", player->userChoise);
 
+        if (player->userChoise == 1) {
+        char save_game[] = "save_game.json";
+        savePlayerData(player, save_game);
+        } 
 
+        else {
+        printf("Progression not saved.\n");
+        }
+    }
 }
 

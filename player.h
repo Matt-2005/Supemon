@@ -13,6 +13,7 @@ typedef struct {
     int supcoins;
     Items itemsList[3];
     int location;
+    int userChoise;
 } Player ;
 
 

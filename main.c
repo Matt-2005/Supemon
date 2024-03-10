@@ -52,9 +52,9 @@ int main()
     initSupemon(&supemon1, "Supmander", 1, 10, 10, 1, 1, 1, 2, 1, &move1, &move2); 
     initSupemon(&supemon2, "Supasaur", 1, 9, 9, 1, 1, 3, 2, 2, &move3, &move4); 
     initSupemon(&supemon3, "Supirtle", 1, 11, 11, 1, 2, 2, 1, 2, &move3, &move5);
-    initSupemon(&supemonEnemy1, "Supttata", 1, 2, 8, 2, 1, 1, 1, 2, &move6, &move7);
-    initSupemon(&supemonEnemy2, "Supcool", 1, 2, 10, 1, 1, 2, 2, 2, &move8, &move9);
-    initSupemon(&supemonEnemy3, "Supnipan", 1, 2, 9, 1, 1, 1, 2, 2, &move6, &move10); 
+    initSupemon(&supemonEnemy1, "Supttata", 1, 8, 8, 2, 1, 1, 1, 2, &move6, &move7);
+    initSupemon(&supemonEnemy2, "Supcool", 1, 10, 10, 1, 1, 2, 2, 2, &move8, &move9);
+    initSupemon(&supemonEnemy3, "Supnipan", 1, 9, 9, 1, 1, 1, 2, 2, &move6, &move10); 
 
 
 

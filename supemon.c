@@ -4,7 +4,7 @@
 #include "supemon.h"
 #include "move.h"
 
-void initSupemon(Supemon *supemon, const char *name, int level, int hp, int max_hp, int attack, int defense, int evasion, int accuracy, int speed, const Move *move1, const Move *move2) {
+void initSupemon(Supemon *supemon, const char *name, int level, int hp, int max_hp, int attack, int defense, int evasion, int accuracy, int speed, Move *move1, Move *move2) {
     strcpy(supemon->name, name);
     supemon->level = level;
     supemon->experience = 0;
@@ -19,8 +19,8 @@ void initSupemon(Supemon *supemon, const char *name, int level, int hp, int max_
     supemon->accuracy = accuracy;
     supemon->base_accuracy = 1;
     supemon->speed = speed;
-    strcpy(supemon->move[0].name, move1->name);
-    strcpy(supemon->move[1].name, move2->name);
+    supemon->move[0] = *move1;
+    supemon->move[1] = *move2;
     }
 
 void displaySupemon(const Supemon *supemon) {
