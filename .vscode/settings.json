@@ -9,7 +9,6 @@
         "move.h": "c",
         "shop.h": "c",
         "items.h": "c",
-        "supemon_center.h": "c",
-        "cJSON.h": "c"
+        "supemon_center.h": "c"
     } 
 }

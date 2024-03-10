@@ -9,6 +9,7 @@
 #include "items.h"
 #include "shop.h"
 #include "supemon_center.h"
+#include "save.h"
 
 void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3, const Items *item1, const Items *item2, const Items *item3, const Move *move1, const Move *move2, const Move *move3, const Move *move4, const Move *move5, const Move *move6, const Move *move7, const Move *move8, const Move *move9, const Move *move10) {
     srand(time(NULL));
@@ -659,6 +660,12 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
                             Supcenter supcenter;
                             initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
                         }
+                        else if (player->location == 4)
+                        {
+                            printf("Goodbye, your progression has been saved !\n");
+                            saveGame(player);
+                            
+                        }
                         continuer = 0;
                     }
                     else if (chance < 0.5)
@@ -678,3 +685,4 @@ void initBattle(Battle *battle, Player *player, const Supemon *supemon1, const S
     }
 }
             
+// au pire si ca sauvegarde pas, pg mais au moins que ca l'ecrive

@@ -7,6 +7,7 @@
 #include "move.h" 
 #include "items.h"
 
+
 int main() 
 {
     Supemon supemon1;
@@ -19,7 +20,6 @@ int main()
     Items item1;
     Items item2;
     Items item3;
-
 
     Move move1;
     Move move2;
@@ -48,7 +48,6 @@ int main()
     initMove(&move10, "StringShot", 0, 0, 1, 0, 0, 1);
 
 
-
     initSupemon(&supemon1, "Supmander", 1, 10, 10, 1, 1, 1, 2, 1, &move1, &move2); 
     initSupemon(&supemon2, "Supasaur", 1, 9, 9, 1, 1, 3, 2, 2, &move3, &move4); 
     initSupemon(&supemon3, "Supirtle", 1, 11, 11, 1, 2, 2, 1, 2, &move3, &move5);
@@ -57,20 +56,24 @@ int main()
     initSupemon(&supemonEnemy3, "Supnipan", 1, 9, 9, 1, 1, 1, 2, 2, &move6, &move10); 
 
 
-
-
     itemInit(&item1, "Potion", 100, 5, 0);
     itemInit(&item2, "Super Potion", 300, 10, 0);
     itemInit(&item3, "Rare candy", 700, 0, 1);
 
-
-
-
-    initPlayer(&player, &supemon1, &supemon2, &supemon3, &supemonEnemy1, &supemonEnemy2, &supemonEnemy3, &item1, &item2, &item3, &move1, &move2, &move3, &move4, &move5, &move6, &move7, &move8, &move9, &move10);
+    printf("Welcome, would you like to load your previous game?\n");
+    printf("1 - Yes\n2 - No\n");
+    scanf("%d", &player.loadGame);
+    if (player.loadGame == 1)
+    {
+        loadGame(&player);
+    }
+    else if (player.loadGame == 2)
+    {
+        initPlayer(&player, &supemon1, &supemon2, &supemon3, &supemonEnemy1, &supemonEnemy2, &supemonEnemy3, &item1, &item2, &item3, &move1, &move2, &move3, &move4, &move5, &move6, &move7, &move8, &move9, &move10);
+    }
     
 
-
+    
 
     return 0;
 }
-

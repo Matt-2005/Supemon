@@ -27,7 +27,7 @@ void initSupcenter(Supcenter *supcenter, Player *player, const Supemon *supemon1
             switch (supcenter->userChoise)
             {
             case 1:
-                player->supemonList[0].hp = player->supemonList[0].max_hp; // y'a peut etre les détails sur moodle oui
+                player->supemonList[0].hp = player->supemonList[0].max_hp; 
                 printf("%s has been healed\n", player->supemonList[0].name);
                 continuer = 0;
                 initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);
@@ -48,7 +48,7 @@ void initSupcenter(Supcenter *supcenter, Player *player, const Supemon *supemon1
                 break;
 
             case 4:
-                player->supemonEnemyList[0].hp = player->supemonEnemyList[0].max_hp; //marche pas, a voir apres
+                player->supemonEnemyList[0].hp = player->supemonEnemyList[0].max_hp; 
                 printf("%s has been healed\n", player->supemonEnemyList[0].name);
                 continuer = 0;
                 initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3, move1, move2, move3, move4, move5, move6, move7, move8, move9, move10);

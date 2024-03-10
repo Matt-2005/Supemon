@@ -14,6 +14,7 @@ typedef struct {
     Items itemsList[3];
     int location;
     int userChoise;
+    int loadGame;
 } Player ;
 
 
