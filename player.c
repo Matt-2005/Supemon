@@ -90,7 +90,7 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
     if (player->location == 1)
     {
         Battle battle;
-        initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+        initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
     }
     else if (player->location == 2)
     {
@@ -100,7 +100,7 @@ void initPlayer(Player *player, const Supemon *supemon1, const Supemon *supemon2
     else if (player->location == 3)
     {
         Supcenter supcenter;
-        initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+        initSupcenter(&supcenter, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
     }
 
     

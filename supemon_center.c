@@ -6,8 +6,9 @@
 #include "player.h"
 #include "supemon_center.h"
 #include "battle.h"
+#include "items.h"
 
-void initSupcenter(Supcenter *supcenter, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3) {
+void initSupcenter(Supcenter *supcenter, Player *player, const Supemon *supemon1, const Supemon *supemon2, const Supemon *supemon3, const Supemon *supemonEnemy1, const Supemon *supemonEnemy2, const Supemon *supemonEnemy3, const Items *item1, const Items *item2, const Items *item3) {
     printf("+-----------------------------------+\n| Welcome to the Supemon Center!    |\n| Here are the services available:  |\n|      1 - Heal your Supemon        |\n|      2 - Leave                    |\n+-----------------------------------+\n");
     printf("1 or 2: ");
     scanf("%d", &supcenter->userChoise);
@@ -29,42 +30,42 @@ void initSupcenter(Supcenter *supcenter, Player *player, const Supemon *supemon1
                 player->supemonList[0].hp = player->supemonList[0].max_hp;
                 printf("%s has been healed\n", player->supemonList[0].name);
                 continuer = 0;
-                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
                 break;
 
             case 2:
                 player->supemonList[1].hp = player->supemonList[1].max_hp;
                 printf("%s has been healed\n", player->supemonList[1].name);
                 continuer = 0;
-                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
                 break;
 
             case 3:
                 player->supemonList[2].hp = player->supemonList[2].max_hp;
                 printf("%s has been healed\n", player->supemonList[2].name);
                 continuer = 0;
-                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
                 break;
 
             case 4:
                 player->supemonEnemyList[0].hp = player->supemonEnemyList[0].max_hp;
                 printf("%s has been healed\n", player->supemonEnemyList[0].name);
                 continuer = 0;
-                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
                 break;
 
             case 5:
                 player->supemonEnemyList[1].hp = player->supemonEnemyList[1].max_hp;
                 printf("%s has been healed\n", player->supemonEnemyList[1].name);
                 continuer = 0;
-                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
                 break;
 
             case 6:
                 player->supemonEnemyList[2].hp = player->supemonEnemyList[2].max_hp;
                 printf("%s has been healed\n", player->supemonEnemyList[2].name);
                 continuer = 0;
-                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
                 break;
 
             case 7:
@@ -78,8 +79,10 @@ void initSupcenter(Supcenter *supcenter, Player *player, const Supemon *supemon1
     else if (supcenter->userChoise == 2)
     {
         printf("Goodbye\n");
+        printf("\n");
+        printf("You go back to the wild\n");
         Battle battle;
         Supemon supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3;
-        initBattle(&battle, player, &supemon1, &supemon2, &supemon3, &supemonEnemy1, &supemonEnemy2, &supemonEnemy3);
+        initBattle(&battle, player, &supemon1, &supemon2, &supemon3, &supemonEnemy1, &supemonEnemy2, &supemonEnemy3, item1, item2, item3);
     }
 }

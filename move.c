@@ -17,6 +17,3 @@ void initMove(Move *move, const char *name, int damage, int attack, int defense,
     move->speed = speed;
 }
 
-void displayMove(const Move *move) {
-    printf("");
-}

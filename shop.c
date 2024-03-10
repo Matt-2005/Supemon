@@ -31,7 +31,7 @@ void initShop(Shop *shop, Player *player, const Items *item1, const Items *item2
                 printf("You have %d supcoins left\n", player->supcoins);
                 continuer = 0;
                 player->itemsList[0] = *item1;
-                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
             }
         break;
 
@@ -47,7 +47,7 @@ void initShop(Shop *shop, Player *player, const Items *item1, const Items *item2
                 printf("You have %d supcoins left\n", player->supcoins);
                 continuer = 0;
                 player->itemsList[1] = *item2;
-                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
             }
         break;
 
@@ -63,7 +63,7 @@ void initShop(Shop *shop, Player *player, const Items *item1, const Items *item2
                 printf("You have %d supcoins left\n", player->supcoins);
                 continuer = 0;
                 player->itemsList[2] = *item3;
-                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3);
+                initBattle(&battle, player, supemon1, supemon2, supemon3, supemonEnemy1, supemonEnemy2, supemonEnemy3, item1, item2, item3);
             }
         break;
         

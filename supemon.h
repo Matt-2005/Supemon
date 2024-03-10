@@ -1,5 +1,6 @@
 #ifndef SUPEMON_H
 #define SUPEMON_H
+#include "move.h"
 
 typedef struct {
     char name[50];
@@ -16,11 +17,11 @@ typedef struct {
     int accuracy;
     int base_accuracy;
     int speed;
-    char moves[2][50];
+    Move move[2];
     int isPlayerOwned;
 } Supemon;
 
-void initSupemon(Supemon *supemon, const char *name, int level, int hp, int attack, int defense, int evasion, int accuracy, int speed, const char *move1, const char *move2);
+void initSupemon(Supemon *supemon, const char *name, int level, int hp, int max_hp, int attack, int defense, int evasion, int accuracy, int speed, const Move *move1, const Move *move2);
 void displaySupemon(const Supemon *supemon);
 void levelUpSupemon(Supemon *supemon);
 

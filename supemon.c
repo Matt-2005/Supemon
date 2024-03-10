@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include "supemon.h"
+#include "move.h"
 
-void initSupemon(Supemon *supemon, const char *name, int level, int hp, int attack, int defense, int evasion, int accuracy, int speed, const char *move1, const char *move2) {
+void initSupemon(Supemon *supemon, const char *name, int level, int hp, int max_hp, int attack, int defense, int evasion, int accuracy, int speed, const Move *move1, const Move *move2) {
     strcpy(supemon->name, name);
     supemon->level = level;
     supemon->experience = 0;
     supemon->hp = hp;
-    supemon->max_hp = supemon->hp;
+    supemon->max_hp = max_hp;
     supemon->attack = attack;
     supemon->base_attack = 1;
     supemon->defense = defense;
@@ -18,9 +19,9 @@ void initSupemon(Supemon *supemon, const char *name, int level, int hp, int atta
     supemon->accuracy = accuracy;
     supemon->base_accuracy = 1;
     supemon->speed = speed;
-    strcpy(supemon->moves[0], move1);
-    strcpy(supemon->moves[1], move2);
-}
+    strcpy(supemon->move[0].name, move1->name);
+    strcpy(supemon->move[1].name, move2->name);
+    }
 
 void displaySupemon(const Supemon *supemon) {
     printf("Name: %s\n", supemon->name);
@@ -30,7 +31,7 @@ void displaySupemon(const Supemon *supemon) {
     printf("Evasion: %d\n", supemon->evasion);
     printf("Accuracy: %d\n", supemon->accuracy);
     printf("Speed: %d\n", supemon->speed);
-    printf("Moves: %s, %s\n", supemon->moves[0], supemon->moves[1]);
+    printf("Moves: %s, %s\n", supemon->move[0].name, supemon->move[1].name);
 }
 
 void levelUpSupemon(Supemon *supemon) {

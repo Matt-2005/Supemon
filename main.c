@@ -35,35 +35,33 @@ int main()
     Battle battle; 
 
 
-
-
-
-    initSupemon(&supemon1, "Supmander", 1, 10, 1, 1, 1, 2, 1, "Scratch", "Grawl");
-    initSupemon(&supemon2, "Supasaur", 1, 9, 1, 1, 3, 2, 2, "Pound", "Foliage");
-    initSupemon(&supemon3, "Supirtle", 1, 11, 1, 2, 2, 1, 2, "Pound", "Shell");
-    initSupemon(&supemonEnemy1, "Supttata", 1, 8, 2, 1, 1, 1, 2, "Tackle", "Tail Whip");
-    initSupemon(&supemonEnemy2, "Supcool", 1, 10, 1, 1, 2, 2, 2, "Gust", "Sand Attack");
-    initSupemon(&supemonEnemy3, "Supnipan", 1, 9, 1, 1, 1, 2, 2, "Tackle", "String Shot");
-
-
-
     initMove(&scratch, "Scratch", 3, 0, 0, 0, 0, 0);
     initMove(&grawl, "Grawl", 0, 1, 0, 0, 0, 0);
     initMove(&pound, "Pound", 2, 0, 0, 0, 0, 0);
     initMove(&foliage, "Foliage", 0, 0, 0, 1, 0, 0);
     initMove(&shell, "Shell", 0, 0, 1, 0, 0, 0);
     initMove(&tackle, "Tackle", 2, 0, 0, 0, 0, 0);
-    initMove(&tailwhip, "Tail Whip", 0, 0, 1, 0, 0, 0);
+    initMove(&tailwhip, "TailWhip", 0, 0, 1, 0, 0, 0);
     initMove(&gust, "Gust", 2, 0, 0, 0, 0, 0);
-    initMove(&sandattack, "Sand Attack", 0, 0, 0, 0, 1, 0);
+    initMove(&sandattack, "SandAttack", 0, 0, 0, 0, 1, 0);
     initMove(&stringshot, "String Shot", 0, 0, 1, 0, 0, 1);
+
+
+
+    initSupemon(&supemon1, "Supmander", 1, 10, 10, 1, 1, 1, 2, 3, &scratch, &grawl); 
+    initSupemon(&supemon2, "Supasaur", 1, 9, 9, 1, 1, 3, 2, 2, &pound, &foliage); 
+    initSupemon(&supemon3, "Supirtle", 1, 11, 11, 1, 2, 2, 1, 2, &pound, &shell);
+    initSupemon(&supemonEnemy1, "Supttata", 1, 2, 8, 2, 1, 1, 1, 2, &tackle, &tailwhip);
+    initSupemon(&supemonEnemy2, "Supcool", 1, 2, 10, 1, 1, 2, 2, 2, &gust, &sandattack);
+    initSupemon(&supemonEnemy3, "Supnipan", 1, 2, 9, 1, 1, 1, 2, 2, &tackle, &stringshot); 
+
+
+
 
     itemInit(&item1, "Potion", 100, 5, 0);
     itemInit(&item2, "Super Potion", 300, 10, 0);
     itemInit(&item3, "Rare candy", 700, 0, 1);
-    // printf("Item 1: %s, Price: %d\n", item1.name, item1.price);
-    // printf("Item 2: %s, Price: %d\n", item2.name, item2.price);
-    // printf("Item 3: %s, Price: %d\n", item3.name, item3.price);
+
 
 
 

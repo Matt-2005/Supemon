@@ -1,8 +1,6 @@
 #ifndef MOVE_H
 #define MOVE_H
 
-//liste des include
-
 typedef struct {
     char name[50];
     int damage;
